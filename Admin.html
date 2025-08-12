@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - Products</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background: linear-gradient(180deg, #071023 0%, #0f1724 100%); }
+    .card-img-top {
+      height: 160px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .table-img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .small-note { font-size:0.85rem; color:#6b7280; }
+    .error-box { display:none; }
+    h4{color: aliceblue;}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">MyShop Admin</a>
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-light" id="goDashboard">Dashboard</button>
+      <button class="btn btn-danger" id="btnLogout">Logout</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="container py-4">
+  <div class="row">
+    <!-- ADD / EDIT FORM -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <h5 id="formTitle">Add Product</h5>
+
+          <div id="msgBox" class="alert alert-danger error-box"></div>
+          <div id="successBox" class="alert alert-success" style="display:none;"></div>
+
+          <form id="productForm" autocomplete="off">
+            <input type="hidden" id="editId" value="">
+
+            <div class="mb-3">
+              <label class="form-label">Product Name</label>
+              <input id="name" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea id="desc" class="form-control" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Price (PKR)</label>
+              <input id="price" type="number" step="0.01" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Image URL</label>
+              <input id="imageUrl" class="form-control" placeholder="https://example.com/pic.jpg" />
+              <div class="small-note mt-1">If left empty, a placeholder image will be used.</div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" id="btnSave" type="submit">Add Product</button>
+              <button type="button" class="btn btn-secondary" id="btnCancelEdit" style="display:none;">Cancel Edit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h6>Notes</h6>
+          <ul class="small-note">
+            <li>Products are stored in Firestore collection: <code>products</code>.</li>
+            <li>Images should be public URLs. Broken images show a fallback.</li>
+            <li>All changes update in real-time for whoever is listening.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT LIST -->
+    <div class="col-lg-8">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>All Products</h4>
+        <div><span class="small-note">Realtime</span></div>
+      </div>
+
+      <div class="row" id="productList"></div>
+
+      <hr>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th style="width:140px">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap & Firebase SDKs -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Firebase (modular v9+) -->
+<script type="module" src="Admin.js"></script>
+</body>
+</html>

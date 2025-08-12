@@ -1,0 +1,120 @@
+:root {
+  --primary: #4f46e5;
+  --accent: #f59e0b;
+  --bg: #1f2937;
+  --card: #111827;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--text);
+}
+
+.container {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  width: 350px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 38px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  background: #1f2937;
+  overflow: hidden;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: var(--text);
+}
+
+.toggle-btn {
+  background: none;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--accent);
+  padding: 0.6rem;
+  transition: all .2s ease-in;
+}
+
+
+#mainBtn {
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+.switch-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+.switch-text span span {
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: bold;
+}
+.switch-text span span:hover {
+    text-decoration: underline;
+}
+.error-message {
+  display: none;
+  background-color: rgba(255, 77, 77, 0.15);
+  color: #ff4d4d;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 77, 77, 0.4);
+  text-align: center;
+}
+
