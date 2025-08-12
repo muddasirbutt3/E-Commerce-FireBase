@@ -71,7 +71,7 @@ function clearForm() {
   btnCancelEdit.style.display = "none";
 }
 goDashboard.addEventListener('click',() => {
-    window.location.href = './User.html'
+    window.location.href = './index.html'
 })
 
 // Fallback image handler string for inline event:
@@ -261,7 +261,7 @@ onAuthStateChanged(auth, (user) => {  if (user) {
     const ADMIN_EMAIL = "muddasir@example.com";
     if (user.email !== ADMIN_EMAIL) {
       alert("You are not an admin. Redirecting...");
-      window.location.href = "/User.html";
+      window.location.href = "/index.html";
     }
   } else {
     window.location.href = '/Auth.html';

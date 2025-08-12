@@ -63,7 +63,7 @@ onAuthStateChanged(auth, (user) => {
       window.location.href = "Admin.html";
       return;
     } else {
-      window.location.href = "User.html";
+      window.location.href = "index.html";
       return;
     }
 });
@@ -86,7 +86,7 @@ mainBtn.addEventListener("click", () => {
           window.location.href = "Admin.html";
           return;
         } else {
-          window.location.href = "User.html";
+          window.location.href = "index.html";
           return;
         }
       })
@@ -110,7 +110,7 @@ mainBtn.addEventListener("click", () => {
         email.value = "";
         password.value = "";
         confirmPassword.value = "";
-        window.location.href = "User.html";
+        window.location.href = "index.html";
       })
       .catch((error) => {
         const errorCode = error.code;
